@@ -1,0 +1,17 @@
+-dontwarn com.google.vr.ndk.base.DaydreamApi
+-keep class com.facebook.** {
+   *;
+}
+-keep class com.google.unity.** {
+   *;
+}
+-keep public class com.google.android.gms.ads.**{
+   public *;
+}
+-keep public class com.google.ads.**{
+   public *;
+}
+-keep class com.we.sdk.** {
+}
+-keepattributes *Annotation*
+-dontobfuscate
