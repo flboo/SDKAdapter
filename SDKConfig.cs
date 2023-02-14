@@ -25,7 +25,7 @@ namespace Qarth
                 return null;
             }
 
-            //Log.i("Success Load SDK Config.");
+            Log.i("Success Load SDK Config.");
             s_Instance = obj as SDKConfig;
 
             SDKConfig newAB = GameObject.Instantiate(s_Instance);
@@ -50,25 +50,16 @@ namespace Qarth
             }
         }
 
-        public void InitSDKConfig()
-        {
-            Log.i("Init[SDKConfig]");
-        }
 
         #endregion
 
         #region 数据
-
-        public string bundleIDIos;
         public string bundleIDAndroid;
         public int signatures;
         public string iosAppID;
-        public string channelID;
         public string remoteConfUrl;
         public string remoteConfAppName;
-        public string privacy_policy_url;
-        public string user_agreement_url;
-        public string user_logout_url;
+
         public bool shopCheckCtrl;
         public BuglyConfig buglyConfig;
         public DataAnalysisConfig dataAnalysisConfig;
@@ -76,7 +67,6 @@ namespace Qarth
         public TGCenterConfig tGCenterConfig;
         public RichOXConfig richOXConfig;
         public JPushConfig jpushConfig;
-        public LebianConfig lebianConfig;
 
         public string bundleID
         {

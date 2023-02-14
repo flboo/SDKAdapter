@@ -1065,17 +1065,18 @@ namespace Qarth
             m_FloatSceneHandlers.Clear();
             m_DialogSceneHandlers.Clear();
             m_NativeSceneHandlers.Clear();
-            for (int i = 0; i < TDROXH5SceneTable.count; i++)
-            {
-                TDROXH5Scene scene = TDROXH5SceneTable.dataList[i];
-                string id = "";
-#if UNITY_ANDROID
-                id = scene.iDAndroid;
-#elif UNITY_IOS
-                id = scene.iDIos;
-#endif
-                AddSceneHandler(scene.key, id, scene.oXSceneType, scene.width, scene.height);
-            }
+            
+//             for (int i = 0; i < TDROXH5SceneTable.count; i++)
+//             {
+//                 TDROXH5Scene scene = TDROXH5SceneTable.dataList[i];
+//                 string id = "";
+// #if UNITY_ANDROID
+//                 id = scene.iDAndroid;
+// #elif UNITY_IOS
+//                 id = scene.iDIos;
+// #endif
+//                 AddSceneHandler(scene.key, id, scene.oXSceneType, scene.width, scene.height);
+//             }
 
             //......
             EventSystem.S.Send(OXEventID.OnRichOXH5Inited);

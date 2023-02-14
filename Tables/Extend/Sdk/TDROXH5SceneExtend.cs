@@ -7,9 +7,9 @@ using Qarth;
 
 namespace GameWish.Game
 {
-    public partial class TDOxSceneTable
+    public partial class TDROXH5Scene
     {
-        static void CompleteRowAdd(TDOxScene tdData)
+        public void Reset()
         {
 
         }

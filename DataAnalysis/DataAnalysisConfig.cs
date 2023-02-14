@@ -12,15 +12,11 @@ namespace Qarth
         public bool isEnable = true;
 
         public AppsflyerConfig appsflyerConfig;
-        //public DataeyeConfig dataeyeConfig;
-        //public GameAnalysisConfig gameAnalysisConfig;
-        //public UmengConfig umengConfig;
 
         public GASdkConfig gasdkConfig;
 
         public RangersConfig rangersConfig;
         public TalkingDataConfig tdConfig;
-        public TrafficConfig trafficConfig;
 
         public EmbedSDKConfig embedsdkConfig;
 
@@ -133,16 +129,6 @@ namespace Qarth
     //         }
     //     }
     // }
-
-    [Serializable]
-    public class TrafficConfig : SDKAdapterConfig
-    {
-        public string secure_key;
-
-        public long user_id;
-        public long appid_Android;
-        public long appid_IOS;
-    }
 
     [Serializable]
     public class EmbedSDKConfig : SDKAdapterConfig

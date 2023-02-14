@@ -8,7 +8,7 @@ using Qarth;
 
 namespace GameWish.Game
 {
-    public partial class TDOxScene
+    public partial class TDROXH5Scene
     {
         
        

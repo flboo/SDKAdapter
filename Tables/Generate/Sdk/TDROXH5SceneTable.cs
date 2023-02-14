@@ -8,16 +8,16 @@ using Qarth;
 
 namespace GameWish.Game
 {
-    public static partial class TDOxSceneTable
+    public static partial class TDROXH5SceneTable
     {
-        private static TDTableMetaData m_MetaData = new TDTableMetaData(TDOxSceneTable.Parse, "ox_scene");
+        private static TDTableMetaData m_MetaData = new TDTableMetaData(TDROXH5SceneTable.Parse, "ROXH5Scene");
         public static TDTableMetaData metaData
         {
             get { return m_MetaData; }
         }
         
-        private static Dictionary<string, TDOxScene> m_DataCache = new Dictionary<string, TDOxScene>();
-        private static List<TDOxScene> m_DataList = new List<TDOxScene >();
+        private static Dictionary<string, TDROXH5Scene> m_DataCache = new Dictionary<string, TDROXH5Scene>();
+        private static List<TDROXH5Scene> m_DataList = new List<TDROXH5Scene >();
         
         public static void Parse(byte[] fileData)
         {
@@ -25,27 +25,27 @@ namespace GameWish.Game
             m_DataList.Clear();
             DataStreamReader dataR = new DataStreamReader(fileData);
             int rowCount = dataR.GetRowCount();
-            int[] fieldIndex = dataR.GetFieldIndex(TDOxScene.GetFieldHeadIndex());
+            int[] fieldIndex = dataR.GetFieldIndex(TDROXH5Scene.GetFieldHeadIndex());
     #if (UNITY_STANDALONE_WIN) || UNITY_EDITOR || UNITY_STANDALONE_OSX
-            dataR.CheckFieldMatch(TDOxScene.GetFieldHeadIndex(), "OxSceneTable");
+            dataR.CheckFieldMatch(TDROXH5Scene.GetFieldHeadIndex(), "ROXH5SceneTable");
     #endif
             for (int i = 0; i < rowCount; ++i)
             {
-                TDOxScene memberInstance = new TDOxScene();
+                TDROXH5Scene memberInstance = new TDROXH5Scene();
                 memberInstance.ReadRow(dataR, fieldIndex);
                 OnAddRow(memberInstance);
                 memberInstance.Reset();
                 CompleteRowAdd(memberInstance);
             }
-            Log.i(string.Format("Parse Success TDOxScene"));
+            Log.i(string.Format("Parse Success TDROXH5Scene"));
         }
 
-        private static void OnAddRow(TDOxScene memberInstance)
+        private static void OnAddRow(TDROXH5Scene memberInstance)
         {
             string key = memberInstance.key;
             if (m_DataCache.ContainsKey(key))
             {
-                Log.e(string.Format("Invaild,  TDOxSceneTable Id already exists {0}", key));
+                Log.e(string.Format("Invaild,  TDROXH5SceneTable Id already exists {0}", key));
             }
             else
             {
@@ -67,7 +67,7 @@ namespace GameWish.Game
             }
         }
 
-        public static List<TDOxScene> dataList
+        public static List<TDROXH5Scene> dataList
         {
             get 
             {
@@ -75,7 +75,7 @@ namespace GameWish.Game
             }    
         }
 
-        public static TDOxScene GetData(string key)
+        public static TDROXH5Scene GetData(string key)
         {
             if (m_DataCache.ContainsKey(key))
             {
@@ -83,7 +83,7 @@ namespace GameWish.Game
             }
             else
             {
-                Log.w(string.Format("Can't find key {0} in TDOxScene", key));
+                Log.w(string.Format("Can't find key {0} in TDROXH5Scene", key));
                 return null;
             }
         }

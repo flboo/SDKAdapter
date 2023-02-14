@@ -50,39 +50,10 @@ namespace Qarth
             }
 #endif
 
-            //#if UNITY_EDITOR
+#if UNITY_EDITOR
             InitSDKAfterRequestPermission();
-            //#else
-            //LebianMgr.S.Init();
-            bool requestPermissions = false;
-            string timeString = PlayerPrefs.GetString("firstStartGame", "");
-            DateTime lastSignDate;
-            if (!string.IsNullOrEmpty(timeString))
-            {
-                if (DateTime.TryParse(timeString, out lastSignDate))
-                {
-                    DateTime today = DateTime.Today;
-                    TimeSpan pass = today - lastSignDate;
-
-                    if (pass.TotalDays >= 2)
-                    {
-                        PlayerPrefs.SetString("firstStartGame", DateTime.Today.ToShortDateString());
-                        requestPermissions = true;
-                    }
-                }
-                else
-                {
-                    PlayerPrefs.SetString("firstStartGame", DateTime.Today.ToShortDateString());
-                }
-            }
-            else
-            {
-                PlayerPrefs.SetString("firstStartGame", DateTime.Today.ToShortDateString());
-                requestPermissions = true;
-            }
-            if (requestPermissions)
-            {
-                CustomExtensions.RequestPermissions(new string[]
+#else
+           CustomExtensions.RequestPermissions(new string[]
                     {
                     // AndroidPermissionDefine.READ_PHONE_STATE,
                     // AndroidPermissionDefine.WRITE_EXTERNAL_STORAGE,
@@ -91,12 +62,7 @@ namespace Qarth
                     (p) => { InitSDKAfterRequestPermission(); },
                     (p) => { InitSDKAfterRequestPermission(); },
                     (p) => { InitSDKAfterRequestPermission(); });
-            }
-            else
-            {
-                InitSDKAfterRequestPermission();
-            }
-            //#endif
+#endif
             Log.i("Init[SDKMgr] After Privacy");
         }
 
@@ -118,6 +84,7 @@ namespace Qarth
                 SDKConfig.S.remoteConfUrl,
                 m_Headers);
         }
+        
         private void OnShopCheckRemoteFetched(string value)
         {
             shopCheckFetched = true;
@@ -230,10 +197,6 @@ namespace Qarth
             {
                 DataAnalysisMgr.S.CheckRetention(true);
 
-                // if (SDKConfig.S.dataAnalysisConfig.GDTActionConfig.isEnable)
-                // {
-                //     GDTAction.S.LogAction(GDTActionDefine.GDT_ACTIONTYPE_START_APP);
-                // }
             }
         }
 
